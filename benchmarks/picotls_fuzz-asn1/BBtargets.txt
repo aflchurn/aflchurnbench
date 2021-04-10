@@ -1,0 +1,2 @@
+fuzz/fuzz-asn1.c:54
+fuzz/fuzz-asn1.c:69

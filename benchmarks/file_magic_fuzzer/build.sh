@@ -16,7 +16,7 @@
 ################################################################################
 
 autoreconf -i
-./configure --enable-static
+./configure --enable-static --disable-shared --disable-libseccomp
 make V=1 all
 
 $CXX $CXXFLAGS -std=c++11 -Isrc/ \
@@ -25,4 +25,5 @@ $CXX $CXXFLAGS -std=c++11 -Isrc/ \
 
 cp ./magic/magic.mgc $OUT/
 
-zip -j $OUT/magic_fuzzer_seed_corpus.zip ./tests/*.testfile
+# zip -j $OUT/magic_fuzzer_seed_corpus.zip ./tests/*.testfile
+

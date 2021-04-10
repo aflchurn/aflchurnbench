@@ -14,9 +14,9 @@
 #
 ################################################################################
 
-FROM gcr.io/oss-fuzz-base/base-builder@sha256:5a7e481c66c269d2a30b52351b5960cc140e4afacb9c7f13f77b5ae2fbff98f2
-MAINTAINER ochang@chromium.org
-RUN apt-get update && apt-get install -y make autoconf automake libtool pkg-config
+FROM gcr.io/oss-fuzz-base/base-builder
+
+RUN apt-get update && apt-get install -y make autoconf automake libtool pkg-config python-dev python3-dev
 
 RUN git clone https://gitlab.gnome.org/GNOME/libxml2.git
 WORKDIR libxml2

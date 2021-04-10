@@ -19,6 +19,336 @@
 # You can run "make presubmit" to do basic validation on this file.
 # Please add new experiment requests towards the top of this file.
 
+- experiment: 2021-05-12-aflpp-bug
+  description: "afl++ ctx on bugs"
+  type: bug
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_classic
+    - aflplusplus_ctx
+    - aflplusplus_ctx1
+    - aflplusplus_ctx2
+    - aflplusplus_ctx3
+    - aflplusplus_ctx4
+
+- experiment: 2021-05-12-aflpp
+  description: "afl++ release comparison"
+  fuzzers:
+    - aflplusplus_optimal_flcnt
+    - aflplusplus_flcnt
+    - aflplusplus_optimal
+    - aflplusplus
+    - aflplusplus_310
+    - aflplusplus_300
+    - entropic
+    - honggfuzz
+
+- experiment: 2021-03-12-aflpp-bug
+  description: "afl++ counter test on bugs"
+  type: bug
+  fuzzers:
+    - aflplusplus_cmplog_introspection
+    - aflplusplus_optimal_flcnt
+    - aflplusplus_flcnt
+    - aflplusplus_optimal_lcnt
+    - aflplusplus_lcnt
+    - aflplusplus_optimal_fcnt
+    - aflplusplus_fcnt
+    - aflplusplus_optimal
+    - aflplusplus
+    - aflplusplus_havoc
+
+- experiment: 2021-03-12-aflpp
+  description: "afl++ ctx + counter test"
+  fuzzers:
+    - aflplusplus_cmplog_introspection
+    - aflplusplus_optimal_flcnt
+    - aflplusplus_flcnt
+    - aflplusplus_optimal_lcnt
+    - aflplusplus_lcnt
+    - aflplusplus_optimal_fcnt
+    - aflplusplus_fcnt
+    - aflplusplus_optimal
+    - aflplusplus
+    - aflplusplus_havoc
+    - aflplusplus_classic
+    - aflplusplus_ctx
+    - aflplusplus_ctx1
+    - aflplusplus_ctx2
+    - aflplusplus_ctx3
+    - aflplusplus_ctx4
+
+- experiment: 2021-03-07-aflpp-bug
+  description: "afl++ cmplog introspection bug"
+  type: bug
+  fuzzers:
+    - aflplusplus_cmplog_introspection
+    - aflplusplus_optimal_flcnt
+    - aflplusplus_flcnt
+    - aflplusplus_optimal
+    - aflplusplus
+    - aflplusplus_havoc
+
+- experiment: 2021-03-07-aflpp
+  description: "afl++ cmplog introspection"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_optimal
+    - aflplusplus_flcnt
+    - aflplusplus_optimal_flcnt
+    - aflplusplus_cmplog_introspection
+    - aflplusplus_cmplog_fail96
+    - aflplusplus_cmplog_4k
+    - aflplusplus_cmplog_12k
+    - aflplusplus_cmplog_16k
+    - aflplusplus_cmplog_24k
+    - aflplusplus_havoc
+
+- experiment: 2021-03-05-aflpp-bug
+  description: "afl++ cmplog introspection bug"
+  type: bug
+  fuzzers:
+    - aflplusplus_introspection
+    - aflplusplus_introspection2
+    - aflplusplus_cmplog_introspection
+    - aflplusplus_optimal_flcnt
+    - aflplusplus_flcnt
+    - aflplusplus_optimal
+    - aflplusplus
+
+- experiment: 2021-03-05-aflpp
+  description: "afl++ cmplog introspection"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_optimal
+    - aflplusplus_flcnt
+    - aflplusplus_optimal_flcnt
+    - aflplusplus_introspection
+    - aflplusplus_introspection2
+    - aflplusplus_cmplog_introspection
+
+- experiment: 2021-02-26-aflpp-bug
+  description: "optimal test + cmplog variants bug"
+  type: bug
+  fuzzers:
+    - aflplusplus_introspection
+    - aflplusplus_introspection2
+    - aflplusplus_cmplog_introspection
+    - aflplusplus_optimal_flcnt
+    - aflplusplus_flcnt
+    - aflplusplus_optimal
+    - aflplusplus
+
+- experiment: 2021-02-26-aflpp
+  description: "optimal test + cmplog variants"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_optimal
+    - aflplusplus_flcnt
+    - aflplusplus_optimal_flcnt
+    - aflplusplus_cmplog_fail96
+    - aflplusplus_cmplog_12k
+    - aflplusplus_introspection
+    - aflplusplus_introspection2
+    - aflplusplus_cmplog_introspection
+
+- experiment: 2021-02-24-aflpp-bug
+  description: "test the buffer boundaries feedback (afl_buf)"
+  type: bug
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_optimal
+    - aflplusplus_flcnt
+
+- experiment: 2021-02-24-aflpp
+  description: "optimal test + cmplog variants"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_optimal
+    - aflplusplus_cmplog_per5
+    - aflplusplus_cmplog_per15
+    - aflplusplus_cmplog_fail192
+    - aflplusplus_cmplog_fail256
+    - aflplusplus_cmplog_24k
+    - aflplusplus_weak
+    - aflplusplus_flcnt
+
+- experiment: 2021-02-22-afl-buf
+  description: "test the buffer boundaries feedback (afl_buf)"
+  type: bug
+  fuzzers:
+    - afl
+    - aflplusplus
+    - aflplusplus_optimal
+    - afl_buf
+    - weizz_qemu
+
+- experiment: 2021-02-22-aflpp
+  description: "optimal test + cmplog variants"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_optimal
+    - aflplusplus_explore
+    - aflplusplus_coe
+    - aflplusplus_arith
+    - aflplusplus_cmplog_per10
+    - aflplusplus_cmplog_per30
+    - aflplusplus_cmplog_fail64
+    - aflplusplus_cmplog_fail128
+    - aflplusplus_cmplog_8k
+    - aflplusplus_u16
+
+- experiment: 2021-02-17-aflpp
+  description: "make optimal optimal again"
+  fuzzers:
+    - aflplusplus_plain
+    - aflplusplus_lto
+    - aflplusplus_lto_2mb
+    - aflplusplus_lto_500mb
+    - aflplusplus_lto_cmplog
+    - aflplusplus_lto_laf
+    - aflplusplus_lto_mopt
+
+- experiment: 2021-02-09-aflpp
+  description: "cmplog variants"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_cmplog
+    - aflplusplus_cmplog_1
+    - aflplusplus_cmplog_max4k
+    - aflplusplus_cmplog_transform
+    - aflplusplus_cmplog_old
+    - aflplusplus_v300c
+
+- experiment: 2021-02-04-aflpp
+  description: "cmplog variants + auto map size"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_cmplog
+    - aflplusplus_cmplog_1
+    - aflplusplus_cmplog_old
+    - aflplusplus_cmplog_max4k
+    - aflplusplus_cmplog_transform
+    - aflplusplus_v300c
+
+- experiment: 2021-02-01-aflpp
+  description: "cmplog variants + auto map size"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_cmplog
+    - aflplusplus_cmplog_1
+    - aflplusplus_cmplog_old
+    - aflplusplus_cmplog_max4k
+    - aflplusplus_cmplog_transform
+    - aflplusplus_v300c
+
+- experiment: 2021-01-30-aflpp-afl
+  description: "cmplog variants"
+  fuzzers:
+    - aflplusplus_cmplog
+    - aflplusplus_cmplog_60
+    - aflplusplus_cmplog_300
+    - aflplusplus_cmplog_select
+    - aflplusplus_cmplog_arith
+    - aflplusplus_cmplog_lowfail
+
+- experiment: 2021-01-27-aflpp-afl
+  description: "plain afl++ vs afl"
+  fuzzers:
+    - aflplusplus_trim
+    - afl
+
+- experiment: 2021-01-27-aflpp-bug
+  description: "afl++ trim vs notrim bug"
+  type: bug
+  fuzzers:
+    - aflplusplus_trim
+    - aflplusplus_notrim
+
+- experiment: 2021-01-25-aflpp
+  description: "afl++ cmplog"
+  fuzzers:
+    - aflplusplus_cmplog
+    - aflplusplus_cmplog12_1
+    - aflplusplus_cmplog12_2
+    - aflplusplus_cmplog12_transform_1
+    - aflplusplus_cmplog12_transform_2
+    - aflplusplus_cmplog123_1
+    - aflplusplus_cmplog123_2
+    - aflplusplus_cmplog123_transform_1
+    - aflplusplus_cmplog123_transform_2
+
+- experiment: 2021-01-22-aflpp
+  description: "afl++ cmplog + notrim"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_notrim
+    - aflplusplus_cmplog_v1
+    - aflplusplus_cmplog_v2
+    - aflplusplus_cmplog_v3
+    - aflplusplus_cmplog_v2_comb
+    - aflplusplus_cmplog_v2_arith
+    - aflplusplus_cmplog_v1_0
+    - aflplusplus_cmplog_v1_5
+    - aflplusplus_cmplog_v1_2
+    - aflplusplus_cmplog_v2_transform
+    - aflplusplus_cmplog_v2_transform2
+
+- experiment: 2021-01-21-aflpp
+  description: "afl++ cmplog + notrim"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_notrim
+    - aflplusplus_cmplog_v1
+    - aflplusplus_cmplog_v2
+    - aflplusplus_cmplog_v3
+    - aflplusplus_cmplog_v2_comb
+    - aflplusplus_cmplog_v2_arith
+    - aflplusplus_cmplog_v1_0
+    - aflplusplus_cmplog_v1_5
+    - aflplusplus_cmplog_v1_2
+    - aflplusplus_cmplog_v2_transform
+    - aflplusplus_cmplog_v2_transform2
+
+- experiment: 2021-01-20-aflpp
+  description: "afl++ cmplog + notrim"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_notrim
+    - aflplusplus_cmplog_stable
+    - aflplusplus_cmplog_dev
+    - aflplusplus_cmplog_v1
+    - aflplusplus_cmplog_v2
+    - aflplusplus_cmplog_v3
+    - aflplusplus_cmplog_v2_comb
+    - aflplusplus_cmplog_v2_arith
+
+- experiment: 2021-01-19-aflpp
+  description: "afl++ cmplog + schedule weighting"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_notrim
+    - aflplusplus_cmplog_stable
+    - aflplusplus_cmplog_dev
+    - aflplusplus_cmplog_v1
+    - aflplusplus_cmplog_v2
+    - aflplusplus_cmplog_v3
+    - aflplusplus_cmplog_v2_comb
+    - aflplusplus_cmplog_v2_arith
+
+- experiment: 2021-01-18-aflpp
+  description: "afl++ cmplog + schedule weighting"
+  fuzzers:
+    - aflplusplus
+    - aflplusplus_notrim
+    - aflplusplus_cmplog_stable
+    - aflplusplus_cmplog_dev
+    - aflplusplus_cmplog_v1
+    - aflplusplus_cmplog_v2
+    - aflplusplus_cmplog_v3
+    - aflplusplus_cmplog_v2_comb
+    - aflplusplus_cmplog_v2_arith
+
 - experiment: 2021-01-11-aflpp
   description: "afl++ cmplog + schedule weighting"
   fuzzers:

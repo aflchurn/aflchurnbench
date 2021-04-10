@@ -13,10 +13,10 @@
 # limitations under the License.
 #
 ################################################################################
-FROM gcr.io/oss-fuzz-base/base-builder@sha256:519355b069f7a0fef0ead198c2e8d946b73e2d8440a49ea3838304d0a56a4802
+FROM gcr.io/oss-fuzz-base/base-builder
 MAINTAINER jsha@letsencrypt.org
 RUN apt-get update
-RUN apt-get install -y make libtool libssl-dev libexpat-dev wget pkg-config
+RUN apt-get install -y make libtool libssl-dev libexpat-dev wget pkg-config bison
 RUN git clone https://github.com/NLnetLabs/unbound unbound
 WORKDIR unbound
 COPY parse_packet_fuzzer.c .
@@ -25,3 +25,4 @@ COPY fuzz_2.c .
 COPY fuzz_3.c .
 COPY fuzz_4.c .
 COPY build.sh $SRC/
+ADD BBtargets.txt $OUT/

@@ -14,7 +14,7 @@
 #
 ################################################################################
 
-FROM gcr.io/oss-fuzz-base/base-builder@sha256:be25273096586fdf7676f72a00a27093c0f5fbc9d9e1f97bef5badb6ab6b8304
+FROM gcr.io/oss-fuzz-base/base-builder
 MAINTAINER cmeister2@gmail.com
 RUN apt-get update && apt-get install -y pkg-config
 
@@ -23,3 +23,4 @@ RUN git clone --depth 1 -b master https://github.com/gnuaspell/aspell-fuzz.git $
 
 WORKDIR $SRC/aspell-fuzz
 COPY build.sh $SRC/
+ADD BBtargets.txt $OUT/

@@ -14,7 +14,7 @@
 #
 ################################################################################
 
-FROM gcr.io/oss-fuzz-base/base-builder@sha256:80975fbad2f1fb2ffb70b63bccd55b4e441440300ccf5044604566deda79eba5
+FROM gcr.io/oss-fuzz-base/base-builder
 MAINTAINER jonathan.foote@gmail.com
 RUN apt-get update && apt-get install -y make autoconf automake libtool cmake pkg-config libssl-dev
 RUN git clone https://github.com/h2o/picotls
@@ -22,3 +22,4 @@ WORKDIR picotls
 RUN git submodule init
 RUN git submodule update
 COPY build.sh $SRC/
+ADD BBtargets.txt $OUT/

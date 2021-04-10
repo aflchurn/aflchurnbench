@@ -23,7 +23,7 @@ def prepare_build_environment():
     """Set environment variables used to build targets for AFL-based
     fuzzers."""
     aflchurn_fuzzer.prepare_build_environment()
-    os.environ.pop('BURST_COMMAND_CHURN')
+    os.environ['AFLCHURN_DISABLE_CHURN'] = '1'
 
 
 def build():
@@ -40,7 +40,7 @@ def build():
 def fuzz(input_corpus, output_corpus, target_binary):
     """Run afl-fuzz on target."""
 
-    run_options = ['-b', 'age']
+    run_options = []
 
     aflchurn_fuzzer.fuzz(input_corpus,
                          output_corpus,

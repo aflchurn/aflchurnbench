@@ -19,6 +19,16 @@ Regressed:
 
 - [neomutt_address-fuzz](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=21873&sort=-reported&q=21873&can=1)
 - [openvswitch_odp_target](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20003&sort=-reported&q=20003&can=1)
+- [yara_dotnet_fuzzer](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=19591&sort=-reported&q=19591&can=1)
+- [libxml2_libxml2_xml_reader_for_file_fuzzer](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=17737&sort=-reported&q=17737&can=1)
+- [systemd_fuzz-varlink](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=14708&sort=-reported&q=14708&can=1)
+- [picotls_fuzz-asn1](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13837&sort=-reported&q=13837&can=1)
+- [readstat_fuzz_format_spss_commands](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15050&sort=-reported&q=15050&can=1)
+- [unbound_fuzz_1_fuzzer](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20308&sort=-reported&q=20308&can=1)
+- [aspell_aspell_fuzzer](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=18462&sort=-reported&q=18462&can=1)
+- [usrsctp_fuzzer_connect](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=18080&sort=-reported&q=18080&can=1)
+- [file_magic_fuzzer](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13222&sort=-reported&q=13222&can=1)
+
 
 Non-regressed:
 
@@ -55,6 +65,42 @@ We set aflchurn as a submodule
 If you want to get the ages/churns of basic blocks during building:
 
     sudo make buildchurn-aflchurn_buildchurns-[your-subject]
+
+## Remove history images, containers, and building caches
+remove them
+```
+sudo docker rm $(sudo docker ps -qa --no-trunc --filter "status=exited")
+sudo docker rmi -f $(sudo docker images | grep -e gcr -e none | sed 's/  */ /g' | cut -d" " -f3 | sort | uniq)
+sudo docker builder prune
+```
+
+## Get bug logs and time to bug
+Change `crash_plotdata_filestore` accordingly in file `experiment-config.yaml`.
+`crash_plotdata_filestore` is the folder including experiment results.
+
+- crash test cases: e.g., $crash_plotdata_filestore/openssl_x509-afl/trial-753301/corpus/crashes/id*
+
+- plot_data: e.g., $crash_plotdata_filestore/openssl_x509-afl/trial-753301/corpus/plot_data
+
+
+### First, remove file docker/generated.mk if experiment-config.yaml is changed
+If one changes `crash_plotdata_filestore` in experiment-config.yaml, 
+remove `docker/generated.mk` to enable the change of `crash_plotdata_filestore`.
+The `docker/generated.mk` will be auto-generated after being removed.
+
+### Then, get bug logs with afl_debug
+Get bug logs
+
+```
+sudo make churn-debug-afl_debug-[subject]
+```
+
+### Then, get time2bug
+Calculate time to bug
+
+```
+./time2bug.sh
+```
 
 # FuzzBench: Fuzzer Benchmarking As a Service
 

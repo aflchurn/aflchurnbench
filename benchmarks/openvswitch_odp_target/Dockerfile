@@ -14,7 +14,7 @@
 #
 ################################################################################
 
-FROM gcr.io/oss-fuzz-base/base-builder@sha256:ce0e67916378f371d8c69ed5b170da26beb7ccd25ddd859f08cc7cb259d57de6
+FROM gcr.io/oss-fuzz-base/base-builder
 MAINTAINER blp@ovn.org
 RUN apt-get update && apt-get install -y make autoconf automake \
     libtool python python3-pip \

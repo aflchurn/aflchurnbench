@@ -15,10 +15,11 @@
 ################################################################################
 
 FROM gcr.io/oss-fuzz-base/base-builder
-MAINTAINER victor@inliniac.net
-RUN apt-get update && apt-get install -y make autoconf automake libtool zlib1g-dev liblzma-dev
+
+RUN apt-get update && apt-get install -y make autoconf automake libtool zlib1g-dev liblzma-dev zip
 RUN git clone https://github.com/OISF/libhtp.git libhtp
 WORKDIR $SRC
-ADD BBtargets.txt $OUT/
+
 COPY build.sh $SRC/
+ADD BBtargets.txt $OUT/
 ADD distance.cfg.txt $OUT/

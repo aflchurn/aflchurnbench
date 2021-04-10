@@ -1,18 +1,19 @@
 benchmarks:
-- serenity_fuzzshell
-- serenity_fuzzbmploader
+- file_magic_fuzzer
+- libhtp_fuzz_htp
+crash_plotdata_filestore: /home/xgzhu/data/fuzzbench-data/churngo/experiment-folders
 description: null
 docker_registry: gcr.io/fuzzbench
-experiment: test3
+experiment: churngo2
 experiment_filestore: /home/xgzhu/data/fuzzbench-data
 fuzzers:
-- aflchurn_seedalias_aco
-- afl
-git_hash: f74ccef7a9d709f01646fd03f881205d01e6da86
+- aflgo11
+- aflchurn
+git_hash: 841caecd6f7fa04c9aec6edb5c17355bae32b4c6
 local_experiment: true
-max_total_time: 900
+max_total_time: 86400
 no_dictionaries: false
 no_seeds: false
 oss_fuzz_corpus: false
 report_filestore: /home/xgzhu/data/fuzzbench-reports
-trials: 2
+trials: 10

@@ -38,11 +38,14 @@ def _get_benchmark_fuzz_target(benchmarks):
 
 
 def _get_makefile_run_template(image):
+
     fuzzer = image['fuzzer']
     benchmark = image['benchmark']
     section = ''
 
-    run_types = ['run', 'debug', 'test-run', 'distance', 'buildchurn']
+    run_types = [
+        'run', 'debug', 'test-run', 'distance', 'buildchurn', 'churn-debug'
+    ]
     testcases_dir = os.path.join(BENCHMARK_DIR, benchmark, 'testcases')
     if os.path.exists(testcases_dir):
         run_types.append('repro-bugs')
@@ -95,6 +98,13 @@ def _get_makefile_run_template(image):
             section += '\t-e MAX_TOTAL_TIME=20 \\\n\t-e SNAPSHOT_PERIOD=10 \\\n'
         if run_type == 'debug':
             section += '\t--entrypoint "/bin/bash" \\\n\t-it '
+        elif run_type == 'churn-debug':
+            # get the folder including crash test cases and files plot_data
+            experiment_config = yaml_utils.read('experiment-config.yaml')
+            crash_plot_folders = experiment_config['crash_plotdata_filestore']
+            section += f'\t-v {crash_plot_folders}:/data \\\n\t'
+            section += '--rm \\\n\t'
+            section += '--entrypoint /out/getbugs.sh '
         elif run_type == 'repro-bugs':
             section += f'\t-v {testcases_dir}:/testcases \\\n\t'
             section += '--entrypoint /bin/bash '

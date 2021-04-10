@@ -14,9 +14,8 @@
 #
 ################################################################################
 
-FROM gcr.io/oss-fuzz-base/base-builder@sha256:05a9e0a5c655592f285dc78069b28159e1de2078faf16470b2f09afa7bf1d9e3
-RUN \
-  apt-get update && apt-get install -y \
+FROM gcr.io/oss-fuzz-base/base-builder
+RUN apt-get update && apt-get install -y \
   automake \
   autoconf \
   make \
@@ -26,3 +25,4 @@ RUN \
 RUN git clone https://github.com/VirusTotal/yara.git
 COPY build.sh $SRC/
 WORKDIR yara
+ADD BBtargets.txt $OUT/

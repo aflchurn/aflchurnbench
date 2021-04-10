@@ -15,6 +15,11 @@
 ARG parent_image
 FROM $parent_image
 
+RUN apt-get install -y python-software-properties software-properties-common && \
+    add-apt-repository ppa:git-core/ppa -y && \
+    apt-get update && \
+    apt-get install git -y
+
 # Add and compile AFLChurn
 # Set AFL_NO_X86 to skip flaky tests.
 ADD aflchurn /afl

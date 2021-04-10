@@ -1,0 +1,16 @@
+src/udev/net/naming-scheme.h:28
+src/udev/net/naming-scheme.h:30
+src/udev/net/naming-scheme.h:31
+src/udev/net/naming-scheme.h:37
+src/udev/udev-builtin-net_id.c:12
+src/udev/udev-builtin-net_id.c:173
+src/udev/udev-builtin-net_id.c:187
+src/udev/udev-builtin-net_id.c:188
+src/udev/udev-builtin-net_id.c:189
+src/udev/udev-builtin-net_id.c:190
+src/udev/udev-builtin-net_id.c:191
+src/udev/udev-builtin-net_id.c:647
+src/udev/udev-builtin-net_id.c:648
+src/udev/udev-builtin-net_id.c:884
+src/udev/udev-builtin-net_id.c:885
+src/udev/udev-builtin-net_id.c:886

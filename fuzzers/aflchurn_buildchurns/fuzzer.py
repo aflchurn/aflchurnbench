@@ -32,8 +32,12 @@ def prepare_build_environment():
     os.environ['CC'] = '/afl/afl-clang-fast'
     os.environ['CXX'] = '/afl/afl-clang-fast++'
     os.environ['FUZZER_LIB'] = '/libAFL.a'
-    os.environ['BURST_COMMAND_AGE'] = '1'
-    os.environ['BURST_COMMAND_CHURN'] = '1'
+
+    os.system(
+        'apt-get install -y python-software-properties software-properties-common && \
+        add-apt-repository ppa:git-core/ppa -y && \
+        apt-get update && \
+        apt-get install git -y')
 
 
 def build():
@@ -58,8 +62,6 @@ def prepare_fuzz_environment(input_corpus):
     # AFL will abort on startup if the core pattern sends notifications to
     # external programs. We don't care about this.
     os.environ['AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES'] = '1'
-    os.environ['BURST_COMMAND_AGE'] = '1'
-    os.environ['BURST_COMMAND_CHURN'] = '1'
 
     # AFL needs at least one non-empty seed to start.
     utils.create_seed_file_for_empty_corpus(input_corpus)

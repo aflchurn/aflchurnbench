@@ -35,16 +35,16 @@ cd $experiment_working_dir
 
 # not qualified: libheif_encoder-fuzzer libheif_file-fuzzer keystone_fuzz_asm_arm_armv8be keystone_fuzz_asm_mips keystone_fuzz_asm_systemz keystone_fuzz_asm_ppc64be libcbor_cbor_load_fuzzer
 # quick crash: jsoncpp_jsoncpp_fuzzer libsass_data_context_fuzzer 
-# never crash: htslib_hts_open_fuzzer libgit2_patch_parse_fuzzer muparser_set_eval_fuzzer ndpi_fuzz_ndpi_reader oniguruma_fuzzer
+# never crash: htslib_hts_open_fuzzer libgit2_patch_parse_fuzzer muparser_set_eval_fuzzer ndpi_fuzz_ndpi_reader oniguruma_fuzzer 
 # long hour building: openssl_client
 # build error: serenity_fuzzbmploader serenity_fuzzshell
-benchmarks="unbound_fuzz_1_fuzzer aspell_aspell_fuzzer usrsctp_fuzzer_connect file_magic_fuzzer yara_dotnet_fuzzer libxml2_libxml2_xml_reader_for_file_fuzzer systemd_fuzz-varlink picotls_fuzz-asn1 readstat_fuzz_format_spss_commands openvswitch_odp_target neomutt_address-fuzz openssl_x509 libgit2_objects_fuzzer libhtp_fuzz_htp unicorn_fuzz_emu_arm_armbe zstd_stream_decompress grok_grk_decompress_fuzzer ndpi_fuzz_process_packet harfbuzz_hb-shape-fuzzer"
+benchmarks="unbound_fuzz_1_fuzzer aspell_aspell_fuzzer usrsctp_fuzzer_connect file_magic_fuzzer yara_dotnet_fuzzer libxml2_libxml2_xml_reader_for_file_fuzzer systemd_fuzz-varlink openvswitch_odp_target neomutt_address-fuzz picotls_fuzz-asn1 readstat_fuzz_format_spss_commands openssl_x509 libgit2_objects_fuzzer libhtp_fuzz_htp unicorn_fuzz_emu_arm_armbe zstd_stream_decompress grok_grk_decompress_fuzzer ndpi_fuzz_process_packet harfbuzz_hb-shape-fuzzer"
 
-# afl aflchurn aflchurn_aco aflchurn_noage aflchurn_nochurn aflchurn_seedalias aflchurn_seedalias_aco
-fuzzers="afl aflchurn aflchurn_noaco aflchurn_noage aflchurn_nochurn aflchurn_pe2 aflchurn_xlogchange aflchurn_powadd aflchurn_rrank aflchurn_texp01 aflchurn_texp03 aflchurn_texp05"
+# afl aflchurn aflchurn_aco aflchurn_noage aflchurn_nochurn aflchurn_seedalias aflchurn_seedalias_aco aflchurn_texp401 aflchurn_texp403 aflchurn_texp405 aflchurn_ratio50
+fuzzers="afl aflchurn aflchurn_noaco aflchurn_ratio10 aflchurn_texp403 aflchurn_texp503 aflchurn_incdec"
 
 experiment_name=$(date --iso-8601)-"aflchurnbench"
 
 run_experiment=$aflchurnbench_root/experiment/run_experiment.py
 export PYTHONPATH=$aflchurnbench_root
-python $run_experiment --benchmarks $benchmarks --fuzzers $fuzzers --experiment-name $experiment_name --experiment-config $config_filename
+python $run_experiment --benchmarks $benchmarks --fuzzers $fuzzers --experiment-name $experiment_name --experiment-config $config_filename --allow-uncommitted-changes

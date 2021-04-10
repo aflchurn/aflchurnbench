@@ -14,13 +14,14 @@
 #
 ################################################################################
 
-FROM gcr.io/oss-fuzz-base/base-builder@sha256:644b720c4138c48258d3b6083125b4caada241540844d2a0daf94f284410f408
-MAINTAINER jonathan@titanous.com
-RUN apt-get update &&\
-    apt-get install -y gperf m4 gettext python3-pip \
-        libcap-dev libmount-dev libkmod-dev \
-        pkg-config wget &&\
-    pip3 install meson ninja
+FROM gcr.io/oss-fuzz-base/base-builder
+
+RUN apt-get update && \
+    apt-get install -y \
+        gperf m4 gettext libcap-dev libmount-dev libkmod-dev \
+        pkg-config wget && \
+    pip3 install meson==0.55.3 ninja==1.10.0
 RUN git clone https://github.com/systemd/systemd systemd
 WORKDIR systemd
 COPY build.sh $SRC/
+ADD BBtargets.txt $OUT/

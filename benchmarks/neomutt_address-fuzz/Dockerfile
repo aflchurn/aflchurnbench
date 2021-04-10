@@ -14,9 +14,10 @@
 #
 ################################################################################
 
-FROM gcr.io/oss-fuzz-base/base-builder@sha256:0c9674bfdaf027500c3b77106c31ab2835b35618e74d9ffae7c8532bd3b5b145
+FROM gcr.io/oss-fuzz-base/base-builder
 MAINTAINER joseph.bisch@gmail.com
 RUN apt-get update && apt-get install -y make autoconf automake libtool xsltproc libncursesw5-dev libtinfo5 libxml2-dev libxml2-utils libidn11-dev
 RUN git clone https://github.com/neomutt/neomutt neomutt
 WORKDIR neomutt
 COPY build.sh $SRC/
+ADD BBtargets.txt $OUT/

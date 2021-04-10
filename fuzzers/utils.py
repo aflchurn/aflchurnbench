@@ -30,7 +30,7 @@ BUGS_OPTIMIZATION_LEVEL = '-O1'
 
 LIBCPLUSPLUS_FLAG = '-stdlib=libc++'
 
-# Flags to use when using sanitizer for bug based benchmarking.
+# # Flags to use when using sanitizer for bug based benchmarking.
 SANITIZER_FLAGS = [
     '-fsanitize=address',
     # Matches UBSan features enabled in OSS-Fuzz.

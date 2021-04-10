@@ -1,7 +1,8 @@
 experiment: test-experiment
-trials: 2
-max_total_time: 900
+trials: 10
+max_total_time: 86400
 docker_registry: gcr.io/fuzzbench
 experiment_filestore: /home/xgzhu/data/fuzzbench-data
 report_filestore: /home/xgzhu/data/fuzzbench-reports
+crash_plotdata_filestore: /home/xgzhu/data/gcresult/result_files/sources20210317
 local_experiment: true

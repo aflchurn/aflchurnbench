@@ -21,3 +21,4 @@ RUN apt-get update && apt-get install -y make autoconf automake gettext libtool 
 RUN git clone https://github.com/WizardMac/ReadStat readstat
 WORKDIR readstat
 COPY build.sh $SRC/
+ADD BBtargets.txt $OUT/

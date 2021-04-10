@@ -21,34 +21,38 @@ jobs:
           - aflcc
           - aflfast
           - aflchurn
+          - aflchurn_buildchurns
           - aflchurn_noaco
           - aflchurn_noage
           - aflchurn_nochurn
-          - aflchurn_pe2
-          - aflchurn_powadd
-          - aflchurn_rrank
-          - aflchurn_texp01
-          - aflchurn_texp03
-          - aflchurn_texp05
-          - aflchurn_xlogchange
+          - aflchurn_ratio10
+          - aflchurn_ratio50
+          - aflchurn_schange
+          - aflchurn_schange2
+          - aflchurn_texp401
+          - aflchurn_texp403
+          - aflchurn_texp405
+          - aflchurn_texp503
+          - aflchurn_incdec
           - aflchurn_seedalias
           - aflchurn_seedalias_aco
-          - aflchurn_average
+          - afl_debug
           - aflgo
+          - aflgo11
+          - aflgo_stage1
+          - aflgo11_stage1
           - aflplusplus
           - aflplusplus_optimal
           - aflplusplus_eclipser
           - aflsmart
           - entropic
           - fairfuzz
-          - fastcgs_lm
           - honggfuzz
           - lafintel
           - klee
           - libfuzzer
-          - libaflfuzzer
-          - manul
           - mopt
+          - neuzz
           # Binary-only (greybox) fuzzers.
           - eclipser
           - afl_qemu
@@ -56,28 +60,26 @@ jobs:
           - honggfuzz_qemu
           - weizz_qemu
           # Temporary variants.
-          - libfuzzer_magicbytes
-          - entropic_magicbytes
-          - aflplusplus_lightweizz
           - aflplusplus_introspection
-          - afl_fast
-          - afl_fast_v2
-          - aflplusplus_fast_v1
-          - aflplusplus_fast_v2
-          - aflplusplus_fast_v2_nolog
-          - aflplusplus_fast_v2_noperf
-          - aflplusplus_fast_v2_branches
-          - aflplusplus_coe_v2_cutoff
-          - aflplusplus_coe_v2
-          - aflplusplus_cmplog
-          - aflplusplus_dict2file
           - aflplusplus_introspection2
-          - aflplusplus_schedule
-          - aflplusplus_schedule_explore
-          - aflplusplus_cmplog_variant
-          - aflplusplus_cmplog_variant2
-          - aflplusplus_cmplog_variant3
-          - aflplusplus_cmplog_new
+          - aflplusplus_dict2file
+          - aflplusplus_cmplog
+          - aflplusplus_cmplog_introspection
+          - aflplusplus_flcnt
+          - aflplusplus_optimal_flcnt
+          - aflplusplus_fcnt
+          - aflplusplus_optimal_fcnt
+          - aflplusplus_lcnt
+          - aflplusplus_optimal_lcnt
+          - aflplusplus_havoc
+          - aflplusplus_ctx
+          - aflplusplus_ctx1
+          - aflplusplus_ctx2
+          - aflplusplus_ctx3
+          - aflplusplus_ctx4
+          - aflplusplus_classic
+          - aflplusplus_300
+          - aflplusplus_310
 
         benchmark_type:
           - oss-fuzz

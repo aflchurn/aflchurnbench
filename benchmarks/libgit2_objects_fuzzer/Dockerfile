@@ -15,10 +15,12 @@
 ################################################################################
 
 FROM gcr.io/oss-fuzz-base/base-builder
-MAINTAINER Nelson Elhage <nelhage@nelhage.com>
-RUN apt-get update && apt-get install -y make autoconf automake libtool cmake
+
+RUN apt-get update && apt-get install -y make autoconf automake libtool cmake zip
 RUN git clone https://github.com/libgit2/libgit2 libgit2
 WORKDIR libgit2
-ADD BBtargets.txt $OUT/
+
 COPY build.sh $SRC/
+COPY BBtargets.txt $OUT/
+
 ADD distance.cfg.txt $OUT/

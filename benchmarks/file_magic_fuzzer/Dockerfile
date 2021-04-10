@@ -20,3 +20,5 @@ RUN apt-get update && apt-get install -y make autoconf automake libtool shtool p
 RUN git clone https://github.com/file/file.git
 WORKDIR file
 COPY build.sh magic_fuzzer.cc $SRC/
+ADD BBtargets.txt $OUT/
+ADD distance.cfg.txt $OUT/

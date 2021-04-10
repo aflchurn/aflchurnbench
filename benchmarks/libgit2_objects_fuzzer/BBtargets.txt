@@ -1,3 +1,4 @@
+include/git2/remote.h:44
 include/git2/remote.h:45
 include/git2/remote.h:46
 include/git2/remote.h:47
@@ -71,7 +72,6 @@ include/git2/remote.h:114
 include/git2/remote.h:115
 include/git2/remote.h:116
 include/git2/remote.h:117
-include/git2/remote.h:118
 src/config.c:1185
 src/config.c:1186
 src/config.c:1205

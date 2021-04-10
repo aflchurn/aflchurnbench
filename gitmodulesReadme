@@ -13,9 +13,6 @@
 [submodule "fuzzers/aflchurn_noaco/aflchurn"]
 	path = fuzzers/aflchurn_noaco/aflchurn
 	url = https://github.com/RosenZhu/AFLChurn.git
-[submodule "fuzzers/aflchurn_average/aflchurn"]
-	path = fuzzers/aflchurn_average/aflchurn
-	url = https://github.com/RosenZhu/AFLChurn.git
 [submodule "fuzzers/aflchurn_seedalias/aflchurn"]
 	path = fuzzers/aflchurn_seedalias/aflchurn
 	url = https://github.com/RosenZhu/AFLChurn.git
@@ -32,24 +29,24 @@
 	path = fuzzers/aflchurn_buildchurns/aflchurn
 	url = https://github.com/RosenZhu/AFLChurn.git
 	branch = check_crashes
-[submodule "fuzzers/aflchurn_xlogchange/aflchurn"]
-	path = fuzzers/aflchurn_xlogchange/aflchurn
+[submodule "fuzzers/aflchurn_texp401/aflchurn"]
+	path = fuzzers/aflchurn_texp401/aflchurn
 	url = https://github.com/RosenZhu/AFLChurn.git
-[submodule "fuzzers/aflchurn_pe2/aflchurn"]
-	path = fuzzers/aflchurn_pe2/aflchurn
+[submodule "fuzzers/aflchurn_texp403/aflchurn"]
+	path = fuzzers/aflchurn_texp403/aflchurn
 	url = https://github.com/RosenZhu/AFLChurn.git
-[submodule "fuzzers/aflchurn_texp01/aflchurn"]
-	path = fuzzers/aflchurn_texp01/aflchurn
+[submodule "fuzzers/aflchurn_texp405/aflchurn"]
+	path = fuzzers/aflchurn_texp405/aflchurn
 	url = https://github.com/RosenZhu/AFLChurn.git
-[submodule "fuzzers/aflchurn_texp03/aflchurn"]
-	path = fuzzers/aflchurn_texp03/aflchurn
+[submodule "fuzzers/aflchurn_ratio10/aflchurn"]
+	path = fuzzers/aflchurn_ratio10/aflchurn
 	url = https://github.com/RosenZhu/AFLChurn.git
-[submodule "fuzzers/aflchurn_texp05/aflchurn"]
-	path = fuzzers/aflchurn_texp05/aflchurn
+[submodule "fuzzers/aflchurn_ratio50/aflchurn"]
+	path = fuzzers/aflchurn_ratio50/aflchurn
 	url = https://github.com/RosenZhu/AFLChurn.git
-[submodule "fuzzers/aflchurn_powadd/aflchurn"]
-	path = fuzzers/aflchurn_powadd/aflchurn
+[submodule "fuzzers/aflchurn_schange/aflchurn"]
+	path = fuzzers/aflchurn_schange/aflchurn
 	url = https://github.com/RosenZhu/AFLChurn.git
-[submodule "fuzzers/aflchurn_rrank/aflchurn"]
-	path = fuzzers/aflchurn_rrank/aflchurn
+[submodule "fuzzers/aflchurn_schange2/aflchurn"]
+	path = fuzzers/aflchurn_schange2/aflchurn
 	url = https://github.com/RosenZhu/AFLChurn.git

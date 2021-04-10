@@ -19,7 +19,7 @@ FROM $parent_image
 # Set AFL_NO_X86 to skip flaky tests.
 
 ADD generate_distance.sh /out/
-
+# ADD aflgo-build.sh /out/
 ADD patch.diff /
 # ADD aflgo /afl
 
