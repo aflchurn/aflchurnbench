@@ -1,0 +1,6 @@
+src/st.c:154
+src/st.c:322
+src/st.c:325
+src/st.c:326
+src/st.c:327
+src/st.c:328

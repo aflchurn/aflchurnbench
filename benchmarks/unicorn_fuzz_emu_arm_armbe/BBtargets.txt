@@ -1,0 +1,7 @@
+qemu/fpu/softfloat-specialize.h:125
+qemu/fpu/softfloat.c:2977
+qemu/include/fpu/softfloat.h:249
+qemu/target-arm/neon_helper.c:735
+qemu/target-arm/translate-a64.c:5587
+qemu/target-i386/ops_sse.h:1681
+qemu/tcg/tcg-op.h:2082

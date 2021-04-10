@@ -1,0 +1,4 @@
+commit: 38271c5ce01f4516c0515df85c3fda08a944f39c
+commit_date: 2020-06-13 06:22:49+00:00
+fuzz_target: fuzz_asm_arm_armv8be
+project: keystone

@@ -1,0 +1,4 @@
+commit: 6e6050e9ca2a898de1c6b0f3babadb745b5047da
+commit_date: 2020-03-25 00:26:28+00:00
+fuzz_target: cbor_load_fuzzer
+project: libcbor

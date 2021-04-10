@@ -1,0 +1,5 @@
+src/bin/image_format/PNGFormat.cpp:406
+src/bin/image_format/PNGFormat.cpp:407
+src/bin/image_format/PNGFormat.cpp:408
+src/bin/image_format/PNGFormat.cpp:409
+src/bin/image_format/PNGFormat.cpp:410

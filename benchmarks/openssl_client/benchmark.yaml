@@ -1,0 +1,4 @@
+commit: a4a93bbfb0e679eaa249f77c7c4e7e823ca870ef
+commit_date: 2020-04-01 15:50:20+00:00
+fuzz_target: client
+project: openssl

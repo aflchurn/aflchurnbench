@@ -1,0 +1,4 @@
+commit: fd9427050700aea7a7e37ad7909c09aff721a797
+commit_date: 2020-02-14 10:42:20+00:00
+fuzz_target: fuzz_ndpi_reader
+project: ndpi

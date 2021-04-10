@@ -1,0 +1,12 @@
+src/lib/protocols/dns.c:144
+src/lib/protocols/fix.c:36
+src/lib/protocols/ssh.c:99
+src/lib/protocols/ssh.c:100
+src/lib/protocols/tls.c:738
+src/lib/protocols/tls.c:739
+src/lib/protocols/tls.c:740
+src/lib/protocols/tls.c:1141
+src/lib/protocols/tls.c:1142
+src/lib/protocols/yahoo.c:79
+src/lib/protocols/yahoo.c:80
+src/lib/protocols/yahoo.c:81

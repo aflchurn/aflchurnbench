@@ -1,0 +1,10 @@
+src/blame.c:271
+src/blame.c:338
+src/blame.c:339
+src/blame.c:340
+src/blame.c:341
+src/blame.c:342
+src/blame.c:343
+src/blame.c:344
+src/blame.c:346
+src/blame.h:87

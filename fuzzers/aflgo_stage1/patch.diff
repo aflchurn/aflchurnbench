@@ -1,0 +1,140 @@
+diff --git a/llvm_mode/afl-clang-fast.c b/llvm_mode/afl-clang-fast.c
+index 28bf281..a56751f 100644
+--- a/llvm_mode/afl-clang-fast.c
++++ b/llvm_mode/afl-clang-fast.c
+@@ -140,11 +140,6 @@ static void edit_params(u32 argc, char** argv) {
+   while (--argc) {
+     u8* cur = *(++argv);
+
+-    if (!strncmp(cur, "-distance", 9)
+-        || !strncmp(cur, "-targets", 8)
+-        || !strncmp(cur, "-outdir", 7))
+-      cc_params[cc_par_cnt++] = "-mllvm";
+-
+     if (!strcmp(cur, "-m32")) bit_mode = 32;
+     if (!strcmp(cur, "-m64")) bit_mode = 64;
+
+diff --git a/llvm_mode/afl-llvm-pass.so.cc b/llvm_mode/afl-llvm-pass.so.cc
+index b76bf57..b0f05f6 100644
+--- a/llvm_mode/afl-llvm-pass.so.cc
++++ b/llvm_mode/afl-llvm-pass.so.cc
+@@ -63,22 +63,6 @@
+
+ using namespace llvm;
+
+-cl::opt<std::string> DistanceFile(
+-    "distance",
+-    cl::desc("Distance file containing the distance of each basic block to the provided targets."),
+-    cl::value_desc("filename")
+-);
+-
+-cl::opt<std::string> TargetsFile(
+-    "targets",
+-    cl::desc("Input file containing the target lines of code."),
+-    cl::value_desc("targets"));
+-
+-cl::opt<std::string> OutDirectory(
+-    "outdir",
+-    cl::desc("Output directory where Ftargets.txt, Fnames.txt, and BBnames.txt are generated."),
+-    cl::value_desc("outdir"));
+-
+ namespace llvm {
+
+ template<>
+@@ -183,55 +167,21 @@ bool AFLCoverage::runOnModule(Module &M) {
+   bool is_aflgo = false;
+   bool is_aflgo_preprocessing = false;
+
+-  if (!TargetsFile.empty() && !DistanceFile.empty()) {
+-    FATAL("Cannot specify both '-targets' and '-distance'!");
+-    return false;
+-  }
+-
+   std::list<std::string> targets;
+   std::map<std::string, int> bb_to_dis;
+   std::vector<std::string> basic_blocks;
+
+-  if (!TargetsFile.empty()) {
+-
+-    if (OutDirectory.empty()) {
+-      FATAL("Provide output directory '-outdir <directory>'");
+-      return false;
+-    }
+-
+-    std::ifstream targetsfile(TargetsFile);
++  std::ifstream preprocessing("/out/preprocessing");
++  if (preprocessing.is_open()) {
++    is_aflgo_preprocessing = true;
++    preprocessing.close();
++  }
++  std::ifstream targetsfile("/out/BBtargets.txt");
++  if (!targetsfile.fail() && targetsfile.is_open()){
+     std::string line;
+     while (std::getline(targetsfile, line))
+       targets.push_back(line);
+     targetsfile.close();
+-
+-    is_aflgo_preprocessing = true;
+-
+-  } else if (!DistanceFile.empty()) {
+-
+-    std::ifstream cf(DistanceFile);
+-    if (cf.is_open()) {
+-
+-      std::string line;
+-      while (getline(cf, line)) {
+-
+-        std::size_t pos = line.find(",");
+-        std::string bb_name = line.substr(0, pos);
+-        int bb_dis = (int) (100.0 * atof(line.substr(pos + 1, line.length()).c_str()));
+-
+-        bb_to_dis.emplace(bb_name, bb_dis);
+-        basic_blocks.push_back(bb_name);
+-
+-      }
+-      cf.close();
+-
+-      is_aflgo = true;
+-
+-    } else {
+-      FATAL("Unable to find %s.", DistanceFile.c_str());
+-      return false;
+-    }
+-
+   }
+
+   /* Show a banner */
+@@ -286,13 +236,13 @@ bool AFLCoverage::runOnModule(Module &M) {
+
+   if (is_aflgo_preprocessing) {
+
+-    std::ofstream bbnames(OutDirectory + "/BBnames.txt", std::ofstream::out | std::ofstream::app);
+-    std::ofstream bbcalls(OutDirectory + "/BBcalls.txt", std::ofstream::out | std::ofstream::app);
+-    std::ofstream fnames(OutDirectory + "/Fnames.txt", std::ofstream::out | std::ofstream::app);
+-    std::ofstream ftargets(OutDirectory + "/Ftargets.txt", std::ofstream::out | std::ofstream::app);
++    std::ofstream bbnames("/out/BBnames.txt", std::ofstream::out | std::ofstream::app);
++    std::ofstream bbcalls("/out/BBcalls.txt", std::ofstream::out | std::ofstream::app);
++    std::ofstream fnames("/out/Fnames.txt", std::ofstream::out | std::ofstream::app);
++    std::ofstream ftargets("/out/Ftargets.txt", std::ofstream::out | std::ofstream::app);
+
+     /* Create dot-files directory */
+-    std::string dotfiles(OutDirectory + "/dot-files");
++    std::string dotfiles("/out/dot-files");
+     if (sys::fs::create_directory(dotfiles)) {
+       FATAL("Could not create directory %s.", dotfiles.c_str());
+     }
+diff --git a/scripts/build/aflgo-build.sh b/scripts/build/aflgo-build.sh
+index 958ca9f..690fba5 100755
+--- a/scripts/build/aflgo-build.sh
++++ b/scripts/build/aflgo-build.sh
+@@ -56,10 +56,3 @@ apt install -y python-dev python3 python3-dev python3-pip autoconf automake libt
+ python3 -m pip install --upgrade pip
+ python3 -m pip install networkx pydot pydotplus
+
+-export CXX=clang++
+-export CC=clang
+-# build AFLGo
+-cd /afl
+-make clean all
+-pushd llvm_mode; make clean all; popd
+-export AFLGO=/afl

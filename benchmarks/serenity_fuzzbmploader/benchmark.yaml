@@ -1,0 +1,4 @@
+commit: 8653128ca8545acb123545bfa4a53b1bd0df4a14
+commit_date: 2020-12-23 00:03:32+00:00
+fuzz_target: FuzzBMPLoader
+project: serenity

@@ -1,0 +1,4 @@
+commit: 27a7ce9157e5d8ae1ea93a8e90e338721460b699
+commit_date: 2020-09-21 23:31:41+00:00
+fuzz_target: fuzzer
+project: oniguruma

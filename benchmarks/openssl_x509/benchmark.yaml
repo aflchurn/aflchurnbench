@@ -1,0 +1,4 @@
+commit: fb1ecf85c9f732e5827771ff243d7a70e06ce112
+commit_date: 2019-10-31 11:26:59+00:00
+fuzz_target: x509
+project: openssl

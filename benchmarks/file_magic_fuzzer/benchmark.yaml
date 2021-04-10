@@ -1,0 +1,4 @@
+commit: 8305d1cc5ec466b2d50d1b6000e7b3c8c4b08853
+commit_date: 2019-02-20 02:35:27+00:00
+fuzz_target: magic_fuzzer
+project: file

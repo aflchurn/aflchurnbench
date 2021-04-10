@@ -1,0 +1,4 @@
+commit: e1547852d9accb9460573eb156fc81645b8e1871
+commit_date: 2020-09-01 14:49:55+00:00
+fuzz_target: fuzz_asm_mips
+project: keystone

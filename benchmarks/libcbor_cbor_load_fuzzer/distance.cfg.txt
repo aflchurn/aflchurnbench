@@ -1,0 +1,14 @@
+cbor_load_fuzzer.cc:8,1.0
+cbor_load_fuzzer.cc:22,1.5
+cbor_load_fuzzer.cc:26,1.3333333333333333
+cbor_load_fuzzer.cc:29,1.0
+cbor_load_fuzzer.cc:10,2.4000000000000004
+cbor_load_fuzzer.cc:14,1.7142857142857142
+cbor_load_fuzzer.cc:16,1.6363636363636365
+cbor_load_fuzzer.cc:19,1.3333333333333333
+cbor_load_fuzzer.cc:20,1.0
+cbor_load_fuzzer.cc:14,1.7142857142857142
+cbor_load_fuzzer.cc:16,1.6363636363636365
+cbor_load_fuzzer.cc:19,1.3333333333333333
+cbor_load_fuzzer.cc:31,1.875
+cbor_load_fuzzer.cc:33,1.0

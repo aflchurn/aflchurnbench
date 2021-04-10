@@ -1,0 +1,4 @@
+commit: 4dffa295c09b00fc781f7fb41596c61a7fb9649f
+commit_date: 2019-11-22 04:21:13+00:00
+fuzz_target: patch_parse_fuzzer
+project: libgit2

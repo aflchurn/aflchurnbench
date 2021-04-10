@@ -1,0 +1,4 @@
+commit: 644b64c9c0555933a27938c15ca1b524a3a7e256
+commit_date: 2019-12-31 02:07:19+00:00
+fuzz_target: fuzz_asm_systemz
+project: keystone

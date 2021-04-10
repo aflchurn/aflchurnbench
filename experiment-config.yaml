@@ -1,0 +1,7 @@
+experiment: test-experiment
+trials: 2
+max_total_time: 900
+docker_registry: gcr.io/fuzzbench
+experiment_filestore: /home/xgzhu/data/fuzzbench-data
+report_filestore: /home/xgzhu/data/fuzzbench-reports
+local_experiment: true
