@@ -47,6 +47,20 @@ Others:
 - [keystone_fuzz_asm_systemz](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20535&sort=-reported&q=keystone%20status%3DVerified&can=1)
 - [keystone_fuzz_asm_ppc64be](https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=21120&sort=-reported&q=keystone%20status%3DVerified&can=1)
 
+# Install
+
+## Prerequisites
+- Docker
+- python >= 3.8.0
+
+## Install requirements
+
+    source .venv/bin/activate
+    python3 -m pip install --upgrade pip
+    python3 -m pip install -r requirements.txt
+    make install-dependencies
+    deactivate
+
 
 ## Update submodules
 We set aflchurn as a submodule
@@ -55,12 +69,23 @@ We set aflchurn as a submodule
     git submodule update --init
     git submodule update --remote --merge
 
+## Verification
+
+    make presubmit
+
 ## Fuzzers to run
 
 - afl
 - aflchurn
 
-## Get ages/churns from the building process
+## Run fuzzers
+
+    make test-run-aflchurn-file_magic_fuzzer
+
+For more details in
+[fuzzbench guide](https://google.github.io/fuzzbench/getting-started/).
+
+## Get ages/churns from the building process (currently not available.)
 
 If you want to get the ages/churns of basic blocks during building:
 

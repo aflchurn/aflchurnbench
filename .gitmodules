@@ -1,3 +1,4 @@
+
 [submodule "third_party/oss-fuzz"]
 	path = third_party/oss-fuzz
 	url = https://github.com/google/oss-fuzz.git
@@ -19,16 +20,6 @@
 [submodule "fuzzers/aflchurn_seedalias_aco/aflchurn"]
 	path = fuzzers/aflchurn_seedalias_aco/aflchurn
 	url = https://github.com/aflchurn/aflchurn.git
-[submodule "fuzzers/aflgo/aflgo"]
-	path = fuzzers/aflgo/aflgo
-	url = https://github.com/aflgo/aflgo
-[submodule "fuzzers/aflgo_stage1/aflgo"]
-	path = fuzzers/aflgo_stage1/aflgo
-	url = https://github.com/aflgo/aflgo
-# [submodule "fuzzers/aflchurn_buildchurns/aflchurn"]
-# 	path = fuzzers/aflchurn_buildchurns/aflchurn
-# 	url = https://github.com/RosenZhu/AFLChurn.git
-# 	branch = check_crashes
 [submodule "fuzzers/aflchurn_texp401/aflchurn"]
 	path = fuzzers/aflchurn_texp401/aflchurn
 	url = https://github.com/aflchurn/aflchurn.git
