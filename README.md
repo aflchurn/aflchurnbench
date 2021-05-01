@@ -55,6 +55,7 @@ Others:
 
 ## Install requirements
 
+    make install-dependencies
     source .venv/bin/activate
     python3 -m pip install --upgrade pip
     python3 -m pip install -r requirements.txt
@@ -63,7 +64,7 @@ Others:
 
 
 ## Update submodules
-We set aflchurn as a submodule
+oss-fuzz is a submodule
 
     git pull
     git submodule update --init

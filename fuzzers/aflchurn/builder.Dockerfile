@@ -22,8 +22,8 @@ RUN apt-get install -y python-software-properties software-properties-common && 
 
 # Add and compile AFLChurn
 # Set AFL_NO_X86 to skip flaky tests.
-ADD aflchurn /afl
-RUN cd /afl && \ 
+RUN git clone https://github.com/aflchurn/aflchurn.git /afl && \
+    cd /afl && \ 
     AFL_NO_X86=1 make && \
     INITIAL_CXXFLAGS=$CXXFLAGS && \
     INITIAL_CFLAGS=$CFLAGS && \

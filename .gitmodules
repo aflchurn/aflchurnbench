@@ -2,18 +2,3 @@
 [submodule "third_party/oss-fuzz"]
 	path = third_party/oss-fuzz
 	url = https://github.com/google/oss-fuzz.git
-[submodule "fuzzers/aflchurn/aflchurn"]
-	path = fuzzers/aflchurn/aflchurn
-	url = https://github.com/aflchurn/aflchurn.git
-[submodule "fuzzers/aflchurn_nochurn/aflchurn"]
-	path = fuzzers/aflchurn_nochurn/aflchurn
-	url = https://github.com/aflchurn/aflchurn.git
-[submodule "fuzzers/aflchurn_noage/aflchurn"]
-	path = fuzzers/aflchurn_noage/aflchurn
-	url = https://github.com/aflchurn/aflchurn.git
-[submodule "fuzzers/aflchurn_noaco/aflchurn"]
-	path = fuzzers/aflchurn_noaco/aflchurn
-	url = https://github.com/aflchurn/aflchurn.git
-[submodule "fuzzers/aflchurn_incdec/aflchurn"]
-	path = fuzzers/aflchurn_incdec/aflchurn
-	url = https://github.com/aflchurn/aflchurn.git
