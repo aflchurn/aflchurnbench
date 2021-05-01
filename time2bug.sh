@@ -63,7 +63,6 @@ for logfile in $(ls -1d $BUG_LOG_DIR/*.log); do
         summary=$(echo $line | grep SUMMARY)
         if [ -n "$summary" ]; then
             bug_type=$(echo $summary | cut -d: -f3 | cut -d\( -f1)
-            # bug_address=$(echo $summary | cut -d+ -f2 | sed 's/)//')
             bug_address=$(echo $summary | grep -o "0x[0-9a-f]*")
             if [ -z "$bug_address" ]; then
                 bug_address="$ADDR_NONE"
@@ -115,8 +114,7 @@ for logfile in $(ls -1d $BUG_LOG_DIR/*.log); do
                 unix_time=$(echo $unixtime_numcrash | cut -d, -f1 | tr -d '[:space:]')
                 crash_time=$((unix_time - init_time))
                 num_crash=$(echo $unixtime_numcrash | cut -d, -f2 | tr -d '[:space:]')
-                # echo "$crash_time, ${num_crash}"
-                # $(echo $restinfo | tr -d '[:space:]')
+                
                 if [ "$cid" -lt "$num_crash" ]; then
                     echo "$crash_time, ${benchmark}, $fuzzer, $tr, $bug_type, $stack_hash, $bug_addr, $bug_3codelines"
                     break

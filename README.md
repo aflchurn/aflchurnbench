@@ -72,7 +72,7 @@ oss-fuzz is a submodule
 
 ## Verification
 
-    make presubmit
+    sudo make presubmit
 
 ## Fuzzers to run
 
@@ -80,8 +80,9 @@ oss-fuzz is a submodule
 - aflchurn
 
 ## Run fuzzers
+example:
 
-    make test-run-aflchurn-file_magic_fuzzer
+    sudo make run-aflchurn-file_magic_fuzzer
 
 For more details in
 [fuzzbench guide](https://google.github.io/fuzzbench/getting-started/).
@@ -92,8 +93,9 @@ If you want to get the ages/churns of basic blocks during building:
 
     sudo make buildchurn-aflchurn_buildchurns-[your-subject]
 
-## Remove history images, containers, and building caches
-remove them
+## Remove history images/containers/caches if you want
+CAUTION: This will remove all images created by fuzzbench. You can skip this step if you don't want to.
+
 ```
 sudo docker rm $(sudo docker ps -qa --no-trunc --filter "status=exited")
 sudo docker rmi -f $(sudo docker images | grep -e gcr -e none | sed 's/  */ /g' | cut -d" " -f3 | sort | uniq)
@@ -127,6 +129,16 @@ Calculate time to bug
 ```
 ./time2bug.sh
 ```
+
+# Run AFLgo
+Currently, aflgo can only run on some subjects, which are
+
+- libgit2_objects_fuzzer
+- libhtp_fuzz_htp
+
+example:
+
+    sudo make run-aflgo-libgit2_objects_fuzzer
 
 # FuzzBench: Fuzzer Benchmarking As a Service
 
