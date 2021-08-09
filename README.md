@@ -87,11 +87,11 @@ example:
 For more details in
 [fuzzbench guide](https://google.github.io/fuzzbench/getting-started/).
 
-## Get ages/churns from the building process (currently not available.)
+<!-- ## Get ages/churns from the building process (currently not available.)
 
 If you want to get the ages/churns of basic blocks during building:
 
-    sudo make buildchurn-aflchurn_buildchurns-[your-subject]
+    sudo make buildchurn-aflchurn_buildchurns-[your-subject] -->
 
 ## Remove history images/containers/caches if you want
 CAUTION: This will remove all images created by fuzzbench. You can skip this step if you don't want to.
